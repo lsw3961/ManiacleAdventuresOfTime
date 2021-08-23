@@ -13,7 +13,7 @@ public class InputReader : ScriptableObject, InputController.IPlayerActions
     public event UnityAction<Vector2> MoveEvent = delegate { };
     public event UnityAction JumpEvent = delegate { };
     public event UnityAction JumpReleaseEvent = delegate { };
-    public event UnityAction ShootEvent = delegate { };
+    public event UnityAction<Vector2> ShootEvent = delegate { };
     public event UnityAction DashEvent = delegate { };
 
     private InputController gameInput;
@@ -71,11 +71,11 @@ public class InputReader : ScriptableObject, InputController.IPlayerActions
     {
         if (context.phase == InputActionPhase.Performed)
         {
-            ShootEvent.Invoke();
+            ShootEvent.Invoke(context.ReadValue<Vector2>());
         }
         if (context.phase == InputActionPhase.Canceled)
         {
-            ShootEvent.Invoke();
+            ShootEvent.Invoke(context.ReadValue<Vector2>());
         }
     }
 

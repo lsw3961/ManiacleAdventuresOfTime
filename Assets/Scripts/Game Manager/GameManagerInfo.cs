@@ -12,7 +12,7 @@ public enum states
 [CreateAssetMenu(fileName = "Game Manager Info", menuName = "Game Manager/Info")]
 public class GameManagerInfo : ScriptableObject
 {
-    private states currentState;
+    [SerializeField] private states currentState;
     public states CurrentState()
     {
         return currentState;
