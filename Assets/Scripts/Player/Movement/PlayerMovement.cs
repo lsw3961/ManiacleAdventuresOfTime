@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed = 5;
 
     //jump variables
+    [SerializeField] private float numberOfJumps = 2;
+    private bool canJump = true;
+    private float currentJumpNumber = 0;
     [SerializeField] private float jumpForce = 5;
     [SerializeField] private float fallMultiplier = 5;
     [SerializeField] private float lowJumpMultiplier = 5;
@@ -111,7 +114,11 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         isJumping = true;
-
+        if (currentJumpNumber < numberOfJumps)
+        {
+            canJump = true;
+            currentJumpNumber++;
+        }
         if (wallSliding)
         {
             wallJumping = true;
@@ -127,9 +134,9 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixJump()
     {
-
-        if (isJumping&&onGround)
+        if ((isJumping&&onGround) || canJump)
         {
+            canJump = false;
             rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.velocity += Vector2.up * jumpForce;
         }
@@ -151,6 +158,7 @@ public class PlayerMovement : MonoBehaviour
         if (Physics2D.OverlapCircle((Vector2)this.transform.position + bottomOffset, overlapRadius, groundedLayer))
         {
             onGround = true;
+            currentJumpNumber = 0;
         }
         else
         {
@@ -161,6 +169,7 @@ public class PlayerMovement : MonoBehaviour
         {
             onWall = true;
             wallSliding = true;
+            currentJumpNumber = 0;
         }
         else
         {
@@ -186,7 +195,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Dash()
     {
-        if (dashTime < 0 && isDashing)
+        if (dashTime < 0 && isDashing && CheckDash() == 0)
         {
             if (lastDirection.x == 0)
             {
@@ -194,13 +203,38 @@ public class PlayerMovement : MonoBehaviour
             }
             dashTime = dashStartTime;
             rb.velocity = new Vector2(rb.velocity.x, 0);
-            rb.velocity += new Vector2(lastDirection.x * dashSpeed, 0);
+            rb.velocity += new Vector2((lastDirection.x * dashSpeed), 0);
+            isDashing = false;
+        }
+        else if (dashTime < 0 && isDashing)
+        {
+            if (lastDirection.x == 0)
+            {
+                lastDirection.x = 1;
+            }
+            dashTime = dashStartTime;
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+            rb.velocity += new Vector2((lastDirection.x * CheckDash()), 0);
             isDashing = false;
         }
     }
     private void DashTimeCounter()
     {
         dashTime -= Time.deltaTime;
+    }
+    private float CheckDash()
+    {
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, lastDirection, dashSpeed);
+        if (hit)
+        {
+            return hit.distance;
+        }
+        else
+        {
+            return 0;
+        }
+
     }
     private void OnDrawGizmos()
     {

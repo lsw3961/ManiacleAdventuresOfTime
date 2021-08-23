@@ -8,7 +8,7 @@
                 {
                     "name": "Move",
                     "type": "Value",
-                    "id": "c7ea9f0a-7a61-44f1-8b81-74897ca2593c",
+                    "id": "86711b6b-8145-4176-af86-9abc4d762335",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
@@ -48,45 +48,12 @@
             ],
             "bindings": [
                 {
-                    "name": "WASD",
-                    "id": "422b8947-0760-4574-b5b1-a62e7a45b1c1",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "left",
-                    "id": "1e57cdda-aaeb-49d2-ab3f-822c755abbce",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "dda5c208-465f-402e-9c26-4e1378b98318",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "03844f5a-f3d6-429c-8b2f-44beca1609d3",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Player",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -97,7 +64,7 @@
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Player",
                     "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -108,7 +75,7 @@
                     "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Player",
                     "action": "Point",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -119,13 +86,79 @@
                     "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Player",
                     "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "WASD",
+                    "id": "4bce3998-4603-4d8e-b54f-58020f423635",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "left",
+                    "id": "330eaf48-f184-4146-9676-a673649125ce",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "a5995204-2a6d-42bd-802f-555e3726354b",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "543640a1-fd2d-42e9-ac4c-84ad74699a1e",
+            "actions": [
+                {
+                    "name": "Left Click",
+                    "type": "Button",
+                    "id": "8be9872f-3a59-4e2f-9fba-49aa8e920a85",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d8995597-bb99-47e6-b763-bdd71046b411",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left Click",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "Player",
+            "bindingGroup": "Player",
+            "devices": []
+        }
+    ]
 }
