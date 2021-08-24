@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ObjectPooler : MonoBehaviour
 {
-    public static ObjectPooler current;
     public GameObject poolPrefab;
     public int poolAmount;
     public bool willGrow;
@@ -15,8 +14,6 @@ public class ObjectPooler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        current = this;
-
         pooledObjects = new List<GameObject>();
         for (int i = 0; i < poolAmount; i++)
         {
