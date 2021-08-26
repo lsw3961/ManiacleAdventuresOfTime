@@ -78,38 +78,58 @@ public class Movement : MonoBehaviour
     private void Flee()
     {
         List<Vector2> directions = CheckIfCanMove();
-        if (directions.Count == 2)
+        if (directions != null)
         {
-            GameObject gb = Physics2D.OverlapCircle((Vector2)this.transform.position, AttackRadius, playerLayer).gameObject;
-            if (gb.transform.position.x < this.transform.position.x)
+            if (directions.Count == 2)
             {
-                rb.velocity = (new Vector2(Vector2.right.x * speed, rb.velocity.y));
+                GameObject gb = Physics2D.OverlapCircle((Vector2)this.transform.position, retreatRadius, playerLayer).gameObject;
+                if (gb.transform.position.x < this.transform.position.x)
+                {
+                    rb.velocity = (new Vector2(Vector2.right.x * speed, rb.velocity.y));
+                }
+                else
+                {
+                    rb.velocity = (new Vector2(Vector2.left.x * speed, rb.velocity.y));
+                }
             }
             else
             {
-                rb.velocity = (new Vector2(Vector2.left.x * speed, rb.velocity.y));
+                rb.velocity = (new Vector2(directions[0].x * speed, rb.velocity.y));
             }
         }
         else
         {
-            rb.velocity = (new Vector2(directions[0].x * speed, rb.velocity.y));
+            rb.velocity = (new Vector2(0, rb.velocity.y));
         }
-        
+
     }
 
     private void Attack()
     {
-
-            GameObject gb = Physics2D.OverlapCircle((Vector2)this.transform.position, AttackRadius, playerLayer).gameObject;
-            if (gb.transform.position.x < this.transform.position.x)
+        List<Vector2> directions = CheckIfCanMove();
+        if (directions != null)
+        {
+            if (directions.Count == 2)
             {
-                rb.velocity = (new Vector2(Vector2.left.x * speed, rb.velocity.y));
+                GameObject gb = Physics2D.OverlapCircle((Vector2)this.transform.position, AttackRadius, playerLayer).gameObject;
+                if (gb.transform.position.x < this.transform.position.x)
+                {
+                    rb.velocity = (new Vector2(Vector2.left.x * speed, rb.velocity.y));
+                }
+                else
+                {
+                    rb.velocity = (new Vector2(Vector2.right.x * speed, rb.velocity.y));
+                }
             }
             else
             {
-                rb.velocity = (new Vector2(Vector2.right.x * speed, rb.velocity.y));
+                rb.velocity = (new Vector2(directions[0].x * speed, rb.velocity.y));
             }
-        
+        }
+        else
+        {
+            rb.velocity = (new Vector2(0, rb.velocity.y));
+        }
 
     }
 
