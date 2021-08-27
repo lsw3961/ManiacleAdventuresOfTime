@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46f5cade8d00f5c48a903c5b7561dd75, type: 3}
-  m_Name: Game Manager Info
+  m_Script: {fileID: 11500000, guid: 6445585376b41d4449f98053f5a821f6, type: 3}
+  m_Name: Player
   m_EditorClassIdentifier: 
-  currentState: 1
-  currentTime: 2.1399987
-  MaxTime: 10
+  playerHealth: 5
+  wallJump: 1
+  doubleJump: 1
+  dash: 1

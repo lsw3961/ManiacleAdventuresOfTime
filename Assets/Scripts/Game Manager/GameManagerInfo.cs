@@ -13,6 +13,8 @@ public enum states
 public class GameManagerInfo : ScriptableObject
 {
     [SerializeField] private states currentState;
+    public float currentTime;
+    public float MaxTime;
     public states CurrentState()
     {
         return currentState;
@@ -28,5 +30,9 @@ public class GameManagerInfo : ScriptableObject
         {
             currentState++;
         }
+    }
+    public void UpdateTime(float curTime)
+    {
+        currentTime = curTime;
     }
 }

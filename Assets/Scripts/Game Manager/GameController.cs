@@ -8,18 +8,18 @@ public class GameController : MonoBehaviour
     [SerializeField]List<GameObject> redObjects = new List<GameObject>();
     [SerializeField]List<GameObject> greenObjects = new List<GameObject>();
     [SerializeField]List<GameObject> blueObjects = new List<GameObject>();
-    [SerializeField] private float changeTimer = 15f;
     private float currentTime = 0f;
 
     public void FixedUpdate()
     {
-        if (currentTime >= changeTimer)
+        if (currentTime >= info.MaxTime)
         {
             currentTime = 0;
             info.Change();
             changeFilter();
         }
         currentTime += Time.deltaTime;
+        info.UpdateTime(currentTime);
     }
 
     private void changeFilter()

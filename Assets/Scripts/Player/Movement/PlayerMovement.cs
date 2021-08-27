@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     //basic variables
     private Rigidbody2D rb;
     public InputReader reader;
+    public PlayerLife player;
+    public GameObject DashIndicator;
     //move variables
     private Vector2 dir = Vector2.zero;
     private Vector2 lastDirection = Vector2.zero;
@@ -14,8 +16,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed = 5;
 
     //jump variables
+    [SerializeField] private float maxNumberOfJumps = 2;
     [SerializeField] private float numberOfJumps = 2;
-    private bool canJump = true;
+    private bool canJump = false;
     private float currentJumpNumber = 0;
     [SerializeField] private float jumpForce = 5;
     [SerializeField] private float fallMultiplier = 5;
@@ -73,15 +76,18 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         Walk(dir);
+        DashCheck();
         Dash();
         IsGrounded();
         FixJump();
         DashTimeCounter();
         if (wallJumping)
         {
-            Invoke("SetWallJumpingToFalse",wallJumpTime);
-            rb.velocity = new Vector2(xWallForce * -lastDirection.x, yWallForce);
-
+            if (player.WallJump)
+            {
+                Invoke("SetWallJumpingToFalse", wallJumpTime);
+                rb.velocity = new Vector2(xWallForce * -lastDirection.x, yWallForce);
+            }
         }
         if (onWall && !onGround)
         {
@@ -114,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         isJumping = true;
-        if (currentJumpNumber < numberOfJumps)
+        if (currentJumpNumber < numberOfJumps && player.DoubleJump)
         {
             canJump = true;
             currentJumpNumber++;
@@ -195,8 +201,9 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Dash()
     {
-        if (dashTime < 0 && isDashing && CheckDash() == 0)
+        if (dashTime <= 0 && isDashing && CheckDash() == 0 && player.Dash)
         {
+            Debug.Log("Dash Every Time");
             if (lastDirection.x == 0)
             {
                 lastDirection.x = 1;
@@ -206,8 +213,9 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity += new Vector2((lastDirection.x * dashSpeed), 0);
             isDashing = false;
         }
-        else if (dashTime < 0 && isDashing)
+        else if (dashTime <= 0 && isDashing && player.Dash)
         {
+            Debug.Log("Dash Every Time");
             if (lastDirection.x == 0)
             {
                 lastDirection.x = 1;
@@ -236,6 +244,18 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+
+    private void DashCheck()
+    {
+        if (dashTime <= 0 && player.Dash)
+        {
+            DashIndicator.SetActive(true);
+        }
+        else
+        {
+            DashIndicator.SetActive(false);
+        }
+    }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -245,5 +265,9 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawWireSphere((Vector2)this.transform.position + rightOffset, overlapRadius);
     }
 
+    private void EnableMultiJump()
+    {
+        numberOfJumps = maxNumberOfJumps;
+    }
 
 }
