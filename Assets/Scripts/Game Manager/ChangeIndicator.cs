@@ -12,9 +12,8 @@ public class ChangeIndicator : MonoBehaviour
     {
         if (info.MaxTime - info.currentTime < headsUpTimer)
         {
-            Debug.Log("Print Me");
             BlinkOn();
-            StartCoroutine("BlinkOff",0f);
+            StartCoroutine("BlinkOff",blinkRate);
         }
         else
         {

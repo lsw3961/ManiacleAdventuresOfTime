@@ -81,6 +81,10 @@ public class PlayerMovement : MonoBehaviour
         IsGrounded();
         FixJump();
         DashTimeCounter();
+        if (onWall && !onGround)
+        {
+            WallSlide();
+        }
         if (wallJumping)
         {
             if (player.WallJump)
@@ -89,11 +93,6 @@ public class PlayerMovement : MonoBehaviour
                 rb.velocity = new Vector2(xWallForce * -lastDirection.x, yWallForce);
             }
         }
-        if (onWall && !onGround)
-        {
-            WallSlide();
-        }
-
     }
 
     /// <summary>
@@ -143,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
         if ((isJumping&&onGround) || canJump)
         {
             canJump = false;
-            rb.velocity = new Vector2(rb.velocity.x, 0);
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
             rb.velocity += Vector2.up * jumpForce;
         }
             if (rb.velocity.y < 0)
@@ -163,6 +162,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Physics2D.OverlapCircle((Vector2)this.transform.position + bottomOffset, overlapRadius, groundedLayer))
         {
+            rb.velocity = new Vector2(rb.velocity.x, 0);
             onGround = true;
             currentJumpNumber = 0;
         }
@@ -203,7 +203,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (dashTime <= 0 && isDashing && CheckDash() == 0 && player.Dash)
         {
-            Debug.Log("Dash Every Time");
             if (lastDirection.x == 0)
             {
                 lastDirection.x = 1;
@@ -215,7 +214,6 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (dashTime <= 0 && isDashing && player.Dash)
         {
-            Debug.Log("Dash Every Time");
             if (lastDirection.x == 0)
             {
                 lastDirection.x = 1;

@@ -35,7 +35,6 @@ public class Gun : MonoBehaviour
     {
         if (currentTime < 0 && direction != Vector2.zero)
         {
-            Debug.Log(direction);
             currentTime = ShotTime;
             GameObject gb = gameObject.GetComponent<ObjectPooler>().GetPooledObject();
             if (gb == null)
