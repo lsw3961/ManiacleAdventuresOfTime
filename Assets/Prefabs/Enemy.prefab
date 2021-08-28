@@ -419,7 +419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolPrefab: {fileID: 4041287607827652898, guid: 84ebfa9f0918cf645a3f7c892bde73d9,
     type: 3}
-  poolAmount: 10
+  poolAmount: 3
   willGrow: 1
 --- !u!114 &907911619922485195
 MonoBehaviour:
