@@ -706,6 +706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62f6e160207379143931e813d7018153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: bfc43cb1846c4974391a42b2fadff6d3, type: 2}
 --- !u!114 &1401306067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -751,7 +752,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1401306066}
         m_MethodName: ChangeLevels
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

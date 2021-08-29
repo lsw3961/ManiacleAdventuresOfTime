@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class ButtonLevelController : MonoBehaviour
 {
-
-    public void ChangeLevels(int levelNumber)
+    public PlayerLife player;
+    public void ChangeLevels()
     {
-        SceneManager.LoadScene(levelNumber);
+        SceneManager.LoadScene(player.CurerntLevel+1);
     }
 
 }
