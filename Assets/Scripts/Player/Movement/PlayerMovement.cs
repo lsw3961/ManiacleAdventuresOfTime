@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
 
     #endregion
 
-    private void Update()
+    private void FixedUpdate()
     {
         Walk(dir);
         DashCheck();

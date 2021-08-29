@@ -8,6 +8,7 @@ TagManager:
   - Ammo
   - Damage
   - Bounding Box
+  - Hazard
   layers:
   - Default
   - TransparentFX

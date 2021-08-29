@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6445585376b41d4449f98053f5a821f6, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  playerHealth: 11
-  wallJump: 1
+  shotTime: 0.17
+  playerHealth: 5
+  wallJump: 0
   doubleJump: 0
   dash: 0

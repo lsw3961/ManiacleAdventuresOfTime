@@ -5,6 +5,7 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     public InputReader reader;
+    public PlayerLife player;
     private Vector2 direction;
     [SerializeField] private float ShotTime = .5f;
     [SerializeField] private float ShotForce = 5f;
@@ -15,11 +16,14 @@ public class Gun : MonoBehaviour
     private void OnEnable()
     {
         reader.ShootEvent += Fire;
+        ShotTime = player.ShotTime;
     }
+
     private void OnDisable()
     {
         reader.ShootEvent -= Fire;
     }
+
     void Update()
     {
         Shoot();
@@ -31,6 +35,7 @@ public class Gun : MonoBehaviour
         direction = dir;
         currentTime = 0;
     }
+
     private void Shoot()
     {
         if (currentTime < 0 && direction != Vector2.zero)

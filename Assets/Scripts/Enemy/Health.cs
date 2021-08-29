@@ -5,11 +5,11 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] private int healthNumber = 3;
-    [SerializeField] private string tag = "Ammo";
+    [SerializeField] private string theTag = "Ammo";
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == tag)
+        if (collision.gameObject.tag == theTag)
         {
             healthNumber--;
         }
