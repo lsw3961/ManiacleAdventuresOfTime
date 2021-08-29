@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 743007719681643803}
   - component: {fileID: 743007719681643812}
   - component: {fileID: 743007719681643813}
+  - component: {fileID: 7086493244457610769}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -167,3 +168,21 @@ MonoBehaviour:
   timerText: {fileID: 0}
   timeRemaining: 0
   startingTime: 180
+--- !u!114 &7086493244457610769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743007719681643801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f950ade9493ee2c47a4169c5d2bd09f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  restartLevelBool: 0
+  newLevelBool: 0
+  level: 0
+  sceneStartDelayTimer: 1.5
+  anim: {fileID: 0}
+  player: {fileID: 11400000, guid: bfc43cb1846c4974391a42b2fadff6d3, type: 2}

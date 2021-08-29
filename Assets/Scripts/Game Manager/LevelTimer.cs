@@ -9,6 +9,7 @@ public class LevelTimer : MonoBehaviour
     [SerializeField] TMP_Text timerText;
     [SerializeField] private float timeRemaining = 0;
     [SerializeField] private float startingTime = 180;
+    public SceneController sceneController;
 
     private int minutes;
     private int seconds; 
@@ -25,7 +26,7 @@ public class LevelTimer : MonoBehaviour
         DisplayOnHud();
         if (timeRemaining <= 0)
         {
-            player.Restart();
+            sceneController.RestartTheLevel();
         }
         else
         {

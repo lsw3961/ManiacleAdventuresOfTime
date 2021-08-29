@@ -7,7 +7,7 @@ public class ButtonLevelController : MonoBehaviour
 
     public void ChangeLevels(int levelNumber)
     {
-        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(levelNumber));
+        SceneManager.LoadScene(levelNumber);
     }
 
 }

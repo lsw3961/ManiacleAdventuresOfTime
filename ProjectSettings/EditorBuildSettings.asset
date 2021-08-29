@@ -5,10 +5,34 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Code Testing Scene.unity
-    guid: ee2d2940b464bee4cb6b37ca060752ba
   - enabled: 1
-    path: Assets/Scenes/Code Testing.unity
-    guid: 11098c4e64e25b0439087a14b9d8d1e1
+    path: Assets/Scenes/Menu.unity
+    guid: a659528dfef4e764c9b7092add18c0a3
+  - enabled: 1
+    path: Assets/Scenes/Intro Scene.unity
+    guid: 477af875bbb163945a966369a78fc3e1
+  - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: 49bd2d896eb2def44a32419c246113f9
+  - enabled: 1
+    path: Assets/Scenes/WallJump.unity
+    guid: e1ef07d98f99db245a1693e5c9634855
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: e2b74e87a9992ab4a9191fec5e339116
+  - enabled: 1
+    path: Assets/Scenes/Dash Controls.unity
+    guid: df41c960113a378429b0b22416c285b4
+  - enabled: 1
+    path: Assets/Scenes/Level 3.unity
+    guid: 6b0e7b175d676fd45afe97b481854cbf
+  - enabled: 1
+    path: Assets/Scenes/Double Jump.unity
+    guid: faed747837f5c794baa5c007d9a9ba5d
+  - enabled: 1
+    path: Assets/Scenes/Level 4.unity
+    guid: c725733a5e2752f498fee6d6b34cb6eb
+  - enabled: 1
+    path: Assets/Scenes/Outro Scene.unity
+    guid: de1ccb53e3547c14eb7c0e7f68f3b8f6
   m_configObjects: {}

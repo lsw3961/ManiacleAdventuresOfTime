@@ -7,8 +7,9 @@ public class PlayerLife : ScriptableObject
 {
     private int maxHealth = 5;
     [SerializeField] private float shotTime = .5f;
-    private int CurerntLevel = 0;
+    public int CurerntLevel = 0;
     [SerializeField] private int playerHealth = 5;
+    public SceneController controller;
     public void OnEnable()
     {
         CurerntLevel = SceneManager.GetActiveScene().buildIndex;
@@ -63,8 +64,4 @@ public class PlayerLife : ScriptableObject
         playerHealth = maxHealth;
     }
 
-    public void Restart()
-    {
-        SceneManager.LoadScene(CurerntLevel);
-    }
 }

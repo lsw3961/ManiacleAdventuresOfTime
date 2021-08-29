@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private string theTag = "Damage";
     [SerializeField] private string hazard = "Hazard";
     [SerializeField] private Slider slider;
+    [SerializeField] private SceneController controller;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == theTag)
@@ -18,8 +19,8 @@ public class PlayerManager : MonoBehaviour
         }
         else if (collision.gameObject.tag == hazard)
         {
-            
-            player.Restart();
+
+            controller.ChangeLevels(player.CurerntLevel);
         }
     }
     private void CheckLife()

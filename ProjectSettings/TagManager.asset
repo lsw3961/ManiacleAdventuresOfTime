@@ -9,6 +9,7 @@ TagManager:
   - Damage
   - Bounding Box
   - Hazard
+  - Game Manager
   layers:
   - Default
   - TransparentFX
