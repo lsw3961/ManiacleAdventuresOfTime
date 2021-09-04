@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Outro Scene.unity
     guid: de1ccb53e3547c14eb7c0e7f68f3b8f6
+  - enabled: 1
+    path: Assets/Scenes/BossTesting.unity
+    guid: 9841c589a5a5ff24599433743e7e7647
   m_configObjects: {}

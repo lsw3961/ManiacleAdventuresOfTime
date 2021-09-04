@@ -23,6 +23,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpForce = 5;
     [SerializeField] private float fallMultiplier = 5;
     [SerializeField] private float lowJumpMultiplier = 5;
+    [SerializeField] private float hangTime = .2f;
+     private float hangCounter = 0;
+
+
+
     [SerializeField] private float slideSpeed = 1;
     [SerializeField] private float wallJumpTime = 1;
     [SerializeField] private float xWallForce = 1;
@@ -78,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
         Walk(dir);
         DashCheck();
         Dash();
+        HangTime();
         IsGrounded();
         FixJump();
         DashTimeCounter();
@@ -105,7 +111,14 @@ public class PlayerMovement : MonoBehaviour
         if (dir != Vector2.zero)
         {
             lastDirection = dir;
-
+        }
+        if (lastDirection == Vector2.left)
+        {
+            transform.localScale = new Vector2(-1, transform.localScale.y);
+        }
+        else
+        {
+            transform.localScale = new Vector2(1, transform.localScale.y);
         }
     }
     private void Walk(Vector2 dir)
@@ -139,7 +152,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixJump()
     {
-        if ((isJumping&&onGround) || canJump)
+        if ((isJumping&&hangCounter>0) || canJump)
         {
             canJump = false;
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
@@ -190,6 +203,17 @@ public class PlayerMovement : MonoBehaviour
     private void SetWallJumpingToFalse()
     {
         wallJumping = false;
+    }
+    private void HangTime()
+    {
+        if (onGround || onWall)
+        {
+            hangCounter = hangTime;
+        }
+        else
+        {
+            hangCounter -= Time.deltaTime;
+        }
     }
 
     /// <summary>
