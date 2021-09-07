@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotTime: 0.15
   CurerntLevel: 10
-  playerHealth: 10
+  playerHealth: 8
   controller: {fileID: 0}
-  wallJump: 0
+  wallJump: 1
   doubleJump: 0
   dash: 0
