@@ -19,11 +19,7 @@ public class attackBehavior : StateMachineBehaviour
             int rand = Random.Range(1, 2);
             if (rand == 0)
             {
-                animator.SetTrigger("attack2");
-            }
-            else
-            {
-                animator.SetTrigger("idle");
+                animator.SetTrigger("attack1");
             }
         }
         else

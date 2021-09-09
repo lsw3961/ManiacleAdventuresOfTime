@@ -9,6 +9,7 @@ public class BossBehavior : MonoBehaviour
     public int Damage = 1;
     public PlayerLife player;
     private float shotTime = 1.5f;
+    [SerializeField] private Animator animator;
     public Slider slider;
 
     public void FixedUpdate()
@@ -28,6 +29,7 @@ public class BossBehavior : MonoBehaviour
         }
         else if (collision.tag == "Ammo")
         {
+            animator.SetTrigger("hit");
             health--;
         }
     }
