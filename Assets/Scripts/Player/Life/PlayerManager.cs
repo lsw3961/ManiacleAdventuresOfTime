@@ -17,11 +17,13 @@ public class PlayerManager : MonoBehaviour
             hurtPlayer.Hurt();
             CheckLife();
             slider.value = player.PlayerHealth;
+            collision.gameObject.SetActive(false);
         }
         else if (collision.gameObject.tag == hazard)
         {
 
             controller.ChangeLevels(player.CurerntLevel);
+            return;
         }
     }
     private void CheckLife()

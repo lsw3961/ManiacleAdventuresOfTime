@@ -10,6 +10,7 @@ public class HurtPlayer : MonoBehaviour
     {
         player.Damage();
         anim.SetTrigger("hit");
+        Debug.Log("hit");
     }
 
     public void Died() 
