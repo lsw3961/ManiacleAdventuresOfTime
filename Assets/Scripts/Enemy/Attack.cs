@@ -37,6 +37,8 @@ public class Attack : MonoBehaviour
                 gb.SetActive(true);
             }
             Vector2 direction = Physics2D.OverlapCircle((Vector2)this.transform.position, SightRadius, playerLayer).gameObject.transform.position - this.transform.position;
+            Debug.Log("Direction: "+ direction);
+            Debug.Log("What its aiming at: "+ Physics2D.OverlapCircle((Vector2)this.transform.position, SightRadius, playerLayer).gameObject.transform.position);
             gb.GetComponent<Rigidbody2D>().velocity = direction * ShotForce;
         }
         currentTime -= Time.deltaTime;

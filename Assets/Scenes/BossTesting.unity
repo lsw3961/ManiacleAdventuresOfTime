@@ -2033,6 +2033,32 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 121838406}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &125390096 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6243787649024465414, guid: c057c70f85b7d76448e0a8730b392094,
+    type: 3}
+  m_PrefabInstance: {fileID: 8063121102200888148}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &125390097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125390096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fd2ae038f314f44c86705bcf6e73db1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: bfc43cb1846c4974391a42b2fadff6d3, type: 2}
+  anim: {fileID: 125390102}
+--- !u!95 &125390102 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 523465834, guid: c057c70f85b7d76448e0a8730b392094,
+    type: 3}
+  m_PrefabInstance: {fileID: 8063121102200888148}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &202800385
 GameObject:
   m_ObjectHideFlags: 0
@@ -30813,7 +30839,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   Damage: 1
-  player: {fileID: 11400000, guid: bfc43cb1846c4974391a42b2fadff6d3, type: 2}
   animator: {fileID: 1882746127}
   slider: {fileID: 207656010}
 --- !u!95 &1882746127
@@ -31506,6 +31531,7 @@ MonoBehaviour:
   hazard: Hazard
   slider: {fileID: 1128506505}
   controller: {fileID: 1630186580}
+  hurtPlayer: {fileID: 0}
 --- !u!61 &2071501234
 BoxCollider2D:
   m_ObjectHideFlags: 0

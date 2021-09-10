@@ -7,11 +7,14 @@ public class BossBehavior : MonoBehaviour
 {
     public int health = 100;
     public int Damage = 1;
-    public PlayerLife player;
     private float shotTime = 1.5f;
     [SerializeField] private Animator animator;
     public Slider slider;
-
+    private HurtPlayer player;
+    public void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<HurtPlayer>();
+    }
     public void FixedUpdate()
     {
         if (shotTime >0)
@@ -25,7 +28,7 @@ public class BossBehavior : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            player.Damage();
+            player.Hurt();
         }
         else if (collision.tag == "Ammo")
         {
