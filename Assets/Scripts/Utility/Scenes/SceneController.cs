@@ -15,6 +15,7 @@ public class SceneController : MonoBehaviour
     {
         if (restartLevelBool || newLevelBool)
         {
+            player.Reset();
             StartCoroutine("SceneChange");
         }
     }

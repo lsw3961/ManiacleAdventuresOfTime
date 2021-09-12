@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName = "Player Info", menuName = "Player/Info")]
 public class PlayerLife : ScriptableObject
 {
-    private int maxHealth = 5;
+    [SerializeField] private int maxHealth = 10;
     [SerializeField] private float shotTime = .5f;
     public int CurerntLevel = 0;
     [SerializeField] private int playerHealth = 5;

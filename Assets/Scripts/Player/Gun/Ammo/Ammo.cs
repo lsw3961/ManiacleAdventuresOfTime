@@ -11,6 +11,7 @@ public class Ammo : MonoBehaviour
     {
         if (collision.gameObject.tag != theTag && collision.gameObject.tag != boundingBox)
         {
+            Debug.Log("turn off");
             this.gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             this.gameObject.SetActive(false);
         }

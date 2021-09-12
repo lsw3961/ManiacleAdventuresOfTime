@@ -2137,6 +2137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 11400000, guid: bfc43cb1846c4974391a42b2fadff6d3, type: 2}
+  gm: {fileID: 1630186580}
   anim: {fileID: 125390102}
 --- !u!4 &125390098 stripped
 Transform:
@@ -30747,6 +30748,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978134725913117072, guid: 0e8fba24578eff44a8109fe1d16c9237,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8506681771704420937, guid: 0e8fba24578eff44a8109fe1d16c9237,
         type: 3}
