@@ -15,7 +15,7 @@ MonoBehaviour:
   maxHealth: 5
   shotTime: 0.15
   CurerntLevel: 10
-  playerHealth: 5
+  playerHealth: 10
   controller: {fileID: 0}
   wallJump: 1
   doubleJump: 0

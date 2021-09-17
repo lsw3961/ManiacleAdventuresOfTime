@@ -99,9 +99,11 @@ public class PlayerMovement : MonoBehaviour
             if (player.WallJump)
             {
                 Invoke("SetWallJumpingToFalse", wallJumpTime);
-                rb.velocity = new Vector2(xWallForce * -lastDirection.x, yWallForce);
+                rb.velocity = new Vector2(xWallForce * -lastDirection.x, jumpForce);
+                Debug.Log(rb.velocity);
             }
         }
+        Debug.Log(rb.velocity);
     }
 
     /// <summary>
@@ -213,7 +215,8 @@ public class PlayerMovement : MonoBehaviour
     }
     private void WallSlide()
     {
-        rb.velocity = new Vector2(rb.velocity.x, -slideSpeed);
+        if(!wallJumping)
+            rb.velocity = new Vector2(rb.velocity.x, -slideSpeed);
     }
     private void SetWallJumpingToFalse()
     {
