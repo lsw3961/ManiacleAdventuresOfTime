@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     //move variables
     private Vector2 dir = Vector2.zero;
     private Vector2 lastDirection = Vector2.zero;
-
+    
     [SerializeField] private float speed = 5;
 
     //jump variables
@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float hangTime = .2f;
      private float hangCounter = 0;
 
+    [SerializeField] private float jumpBufferLength = .5f;
+    private float jumpBufferCount = 0;
 
 
     [SerializeField] private float slideSpeed = 1;
@@ -84,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
         DashCheck();
         Dash();
         HangTime();
+        JumpBuffer();
         IsGrounded();
         FixJump();
         DashTimeCounter();
@@ -145,6 +148,17 @@ public class PlayerMovement : MonoBehaviour
         reader.JumpReleaseEvent += JumpReleased;
 
     }
+    private void JumpBuffer()
+    {
+        if (isJumping)
+        {
+            jumpBufferCount = jumpBufferLength;
+        }
+        else 
+        {
+            jumpBufferCount -= Time.deltaTime;
+        }
+    }
     private void JumpReleased()
     {
         isJumpingReleased = true;
@@ -152,9 +166,10 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixJump()
     {
-        if ((isJumping&&hangCounter>0) || canJump)
+        if ((jumpBufferCount>00&&hangCounter>0) || canJump)
         {
             canJump = false;
+            jumpBufferCount = 0;
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
             rb.velocity += Vector2.up * jumpForce;
         }
