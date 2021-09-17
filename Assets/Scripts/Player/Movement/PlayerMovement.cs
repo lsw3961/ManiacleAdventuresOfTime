@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public InputReader reader;
     public PlayerLife player;
     public GameObject DashIndicator;
+    public Animator anim;
     //move variables
     private Vector2 dir = Vector2.zero;
     private Vector2 lastDirection = Vector2.zero;
@@ -128,7 +129,17 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Walk(Vector2 dir)
     {
+        if (dir != Vector2.zero) 
+        {
+            anim.SetTrigger("startRunning");
+            anim.SetBool("isRunning",true);
+        }
+        else 
+        {
+            anim.SetTrigger("stopRunning");
+        }
         rb.velocity = (new Vector2(dir.x * speed, rb.velocity.y));
+        
     }
 
     /// <summary>
