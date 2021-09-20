@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46f5cade8d00f5c48a903c5b7561dd75, type: 3}
   m_Name: Game Manager Info
   m_EditorClassIdentifier: 
-  currentState: 1
-  currentTime: 2.1399987
-  MaxTime: 10
+  currentState: 2
+  currentTime: 0.36
+  MaxTime: 5
