@@ -104,7 +104,6 @@ public class PlayerMovement : MonoBehaviour
                 Debug.Log(rb.velocity);
             }
         }
-        Debug.Log(rb.velocity);
     }
 
     /// <summary>
@@ -114,6 +113,16 @@ public class PlayerMovement : MonoBehaviour
     private void Move(Vector2 direction)
     {
         dir = direction;
+
+        if (dir != Vector2.zero)
+        {
+            anim.SetTrigger("startRunning");
+            anim.SetBool("isRunning", true);
+        }
+        else
+        {
+            anim.SetTrigger("stopRunning");
+        }
         if (dir != Vector2.zero)
         {
             lastDirection = dir;
@@ -129,15 +138,6 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Walk(Vector2 dir)
     {
-        if (dir != Vector2.zero) 
-        {
-            anim.SetTrigger("startRunning");
-            anim.SetBool("isRunning",true);
-        }
-        else 
-        {
-            anim.SetTrigger("stopRunning");
-        }
         rb.velocity = (new Vector2(dir.x * speed, rb.velocity.y));
         
     }
